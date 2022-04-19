@@ -1,0 +1,28 @@
+image: artifactory.f5net.com/dockerhub-remote/node:16-alpine # Run the job in a `node` docker image
+
+stages:
+  - build
+  - pages
+
+build:
+  stage: build
+  script:
+    - yarn install # Run `yarn install` and `yarn build`
+    - yarn build
+    - yarn export
+  artifacts:
+    paths:
+      - out # Save the out result as an artifact
+
+pages:
+  stage: pages
+  variables:
+    GIT_STRATEGY: none # Do not clone git repo
+  script:
+    # Rename the next `out` folder to `public`
+    - mv ./out ./public
+  artifacts:
+    paths:
+      - public
+  only:
+    - main
