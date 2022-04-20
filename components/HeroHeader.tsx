@@ -1,5 +1,6 @@
 import React from 'react';
-import Image from 'next/image';
+import Image from './Image';
+import octoLogo from '../public/img/f5/octologo.png';
 
 const HeroHeader: React.FC = () => {
   return (
@@ -17,12 +18,7 @@ const HeroHeader: React.FC = () => {
         ></span>
       </div>
       <div className="absolute top-4 left-32">
-        <Image
-          alt="logo"
-          src="/../public/img/f5/octologo.png"
-          width={128}
-          height={38}
-        />
+        <Image alt="logo" src={octoLogo} width={128} height={38} />
       </div>
       <div className="container relative mx-auto">
         <div className="items-center flex flex-wrap">

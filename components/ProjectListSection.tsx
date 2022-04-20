@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from 'next/image';
+import Image from './Image';
 import { DocumentDuplicateIcon } from '@heroicons/react/solid';
 
 const documents = [

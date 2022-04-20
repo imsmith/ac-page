@@ -4,6 +4,7 @@ const isProd = process.env.NODE_ENV === 'production';
 const nextConfig = {
   reactStrictMode: true,
   images: {
+    loader: 'custom',
     domains: ['unsplash.com', 'images.unsplash.com', 'f5.sharepoint.com'],
   },
   assetPrefix: isProd ? '/ac-page/' : '',
