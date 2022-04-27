@@ -39,26 +39,7 @@ const documents = [
 
 const ProjectListSection: React.FC = () => {
   return (
-    <section className="relative py-20">
-      <div
-        className="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20 h-20"
-        style={{ transform: 'translateZ(0)' }}
-      >
-        <svg
-          className="absolute bottom-0 overflow-hidden"
-          xmlns="http://www.w3.org/2000/svg"
-          preserveAspectRatio="none"
-          version="1.1"
-          viewBox="0 0 2560 100"
-          x="0"
-          y="0"
-        >
-          <polygon
-            className="text-white fill-current"
-            points="2560 0 2560 100 0 100"
-          ></polygon>
-        </svg>
-      </div>
+    <section className="py-20">
       <div className="container mx-auto px-4">
         <div className="items-center flex flex-wrap">
           <div className="w-full md:w-4/12 ml-auto mr-auto px-4">
@@ -73,13 +54,11 @@ const ProjectListSection: React.FC = () => {
             </div>
           </div>
           <div className="w-full md:w-5/12 ml-auto mr-auto px-4">
-            <div className="md:pr-12">
+            <div className="md:pr-12 pt-12">
               <div className="text-slate-500 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-slate-200">
                 <DocumentDuplicateIcon />
               </div>
-              <h3 className="text-3xl font-semibold">
-                Currently Signed Documents
-              </h3>
+              <h3 className="text-3xl font-semibold">Products of Interest</h3>
               <ul className="list-none mt-6">
                 {documents.map((doc, index) => (
                   <li key={index} className="py-2 flex items-center">
@@ -88,7 +67,7 @@ const ProjectListSection: React.FC = () => {
                       target="_blank"
                       href={doc.link}
                     >
-                      <h4 className="text-slate-500 underline cursor-pointer hover:text-blue-400">
+                      <h4 className="text-slate-500 underline cursor-pointer hover:text-primary-400">
                         {doc.title}
                       </h4>
                     </a>
