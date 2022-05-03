@@ -14,7 +14,9 @@ const Layout: React.FC<Props> = ({ children }) => {
       </Head>
       <Navbar />
       <div className="pt-[70px] flex flex-col h-full">
-        <main className="flex flex-1 flex-col">{children}</main>
+        <main className="flex flex-1 flex-col bg-white dark:bg-slate-900">
+          {children}
+        </main>
         <Footer />
       </div>
     </div>
