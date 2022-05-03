@@ -29,7 +29,7 @@ const CardWithDescription: React.FC<Props> = ({ member }) => {
           href={`/members/${member.name.split(' ').join('-')}`}
           className="text-primary-600 dark:text-primary-400 hover:underline"
         >
-          View Profile
+          View Profile sup
         </a>
       </div>
     </div>
