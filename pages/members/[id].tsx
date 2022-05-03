@@ -49,7 +49,7 @@ const Member: NextPage = () => {
               </div>
             </div>
           </div>
-          <article className="flex-1 border dark:border-slate-400 text-slate-900 dark:text-white p-2">
+          <article className="flex-1 text-slate-900 dark:text-white p-2">
             <div>
               Irure mollit occaecat est consequat ad incididunt dolor nulla sunt
               Lorem.content
