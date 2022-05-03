@@ -7,7 +7,7 @@ const nextConfig = {
     loader: 'custom',
     domains: ['unsplash.com', 'images.unsplash.com', 'f5.sharepoint.com'],
   },
-  assetPrefix: isProd ? '/ac-page/' : '',
+  assetPrefix: '',
 };
 
 module.exports = nextConfig;
