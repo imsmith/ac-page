@@ -35,7 +35,8 @@ const MemberStructure: React.FC<Props> = ({ children, meta }) => {
               <div className="text-slate-700 dark:text-white mt-2">
                 <p className="text-base">Socials</p>
                 <div className="flex mt-2">
-                  {meta.socials.github && (
+                  {(meta.socials.github ||
+                    meta.socials.github?.length === 0) && (
                     <a
                       rel="noopener noreferrer"
                       target="_blank"
@@ -45,7 +46,8 @@ const MemberStructure: React.FC<Props> = ({ children, meta }) => {
                       <GithubIcon />
                     </a>
                   )}
-                  {meta.socials.linkedin && (
+                  {(meta.socials.linkedin ||
+                    meta.socials.linkedin?.length === 0) && (
                     <a
                       rel="noopener noreferrer"
                       target="_blank"
@@ -55,7 +57,8 @@ const MemberStructure: React.FC<Props> = ({ children, meta }) => {
                       <LinkdinIcon />
                     </a>
                   )}
-                  {meta.socials.twitter && (
+                  {(meta.socials.twitter ||
+                    meta.socials.twitter?.length === 0) && (
                     <a
                       rel="noopener noreferrer"
                       target="_blank"

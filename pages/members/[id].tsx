@@ -1,6 +1,4 @@
 import React from 'react';
-import { members } from '../../utils/constants';
-import { Avatar, TwitterIcon, LinkdinIcon, GithubIcon } from '../../components';
 import type { NextPage } from 'next';
 
 const Member: NextPage = () => {
