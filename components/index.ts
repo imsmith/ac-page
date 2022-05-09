@@ -11,4 +11,7 @@ export { default as Card } from './Card';
 export { default as CardWithDescription } from './CardWithDescription';
 export { default as Avatar } from './Avatar';
 export { default as MemberStructure } from './MemberStructure';
+export { default as BlogStructure } from './BlogStructure';
+export { default as Heading } from './Heading';
+export { default as SyntaxHighlighter } from './SyntaxHighlighter';
 export * from './icons';

@@ -1,0 +1,86 @@
+---
+title: 'Wut'
+publishedAt: '2022-04-16'
+excerpt: 'Next.js has a built-in Image component that comes with a lot of performance optimization features when you are using it.'
+cover_image: 'path/to/where/image/is/stored'
+---
+
+# Wahoo
+
+its working
+
+import Demo from '../../components/Demo';
+
+Here's a **neat** demo:
+
+<Demo />
+<Avatar />
+
+```js
+// pages/index.js
+
+import { MDXProvider } from '@mdx-js/react';
+import Image from 'next/image';
+import { Heading, InlineCode, Pre, Table, Text } from 'my-components';
+
+const ResponsiveImage = (props) => (
+  <Image alt={props.alt} layout="responsive" {...props} />
+);
+
+const components = {
+  img: ResponsiveImage,
+  h1: Heading.H1,
+  h2: Heading.H2,
+  p: Text,
+  pre: Pre,
+  code: InlineCode,
+};
+
+export default function Post(props) {
+  return (
+    <MDXProvider components={components}>
+      <main {...props} />
+    </MDXProvider>
+  );
+}
+```
+
+# State of Application Strategy 2022: Multi-Cloud Complexity Continues
+
+Inevitably, every company will be multi-cloud and forced to face the complexity that introduces into operations, security, and the workforce.
+
+It will surprise no one to learn that a plurality of organizations responding to our annual State of Application Strategy survey told us they have apps in multiple clouds. More than three-quarters—77% to be exact—are currently multi-cloud in the traditional sense.
+
+I say traditional sense because my opening statement takes into consideration that a preponderance of organizations are also using one or more cloud-based as-a-Service offerings. And by preponderance, I mean nearly all, at a whopping 93%. In fact, organizations on average consume 2.9 different as-a-Service offerings. For those of you who immediately dismiss the ubiquitous adoption by noting that every company uses some kind of SaaS, let me say that the 2.9 includes what is increasingly grouped together as XaaS, with:
+
+36% consuming Security-as-a-Service, such as cloud-based WAF, DDoS, or bot management
+35% consuming Infrastructure-as-a-Service, often denoted as ‘public cloud’
+25% using Business-Process-as-a-Service
+21% using Containers-as-a-Service
+31% taking advantage of Platform-as-a-Service
+I would further note that the adoption of edge computing beyond traditional CDNs and security service distribution is also increasing. A significant percentage of organizations plan to deploy application and data workloads at the edge, indicating that edge computing is well on its evolutionary track toward becoming an application platform.
+
+That extends the challenges of multi-cloud to the edge, primarily because many of the same technologies and tools that organizations use to develop, deploy, and operate apps in multiple clouds are being extended to edge.
+
+And, of course, let’s not forget that many organizations operate private clouds on-premises.
+
+So, to sum that up, multi-cloud is the amalgamation of core, cloud, and edge, and it is defined primarily by its common operating model. That is, the use of APIs to interface, define, deploy, and operate resources.
+
+The problem is that those APIs are all unique. Not the way they are accessed, because APIs today are primarily HTTP-based REST calls with well-understood protocols and data formats (mostly JSON). But the actual models those API calls are intended to interact with, and the processes required to correctly provision, manage, and even monitor cloud-based resources are all very different and unique to the provider.
+
+That’s why that XaaS is so important: because it introduces yet another API into an already overfull cup of cloud APIs. Because no organization “just consumes” XaaS. There are connections back into the organization—whether for access or as part of a workflow—that are made possible by APIs.
+
+That’s where complexity makes a mess of things and introduces challenges that continue to plague enterprises today. Challenges that have largely remained the same since we began asking about them; that is: consistent security, visibility, and migrating apps between cloud properties.
+
+While these three challenges have changed places among multi-cloud challenges over the years, all three have always been in the top five.
+
+What’s new this year is the striking increase in a self-reported skills deficit associated with cloud APIs and tools. Last year, this skill gap was reported by a third—33%—of respondents. This year? It jumped dramatically to more than half at 55%. While not directly a “multi-cloud challenge,” that increase makes it deserving of a spot on my list of top three multi-cloud challenges in 2022.
+
+![](https://www.f5.com/content/dam/f5-com/page-assets-en/home-en/company/blog/2022/multi-cloud%20challenges2022.jpg)
+
+multi-cloud challenges
+But not all is frustrating in a multi-cloud world. For example, those who told us they operate apps in multiple clouds are far more likely to have the tools they need to report on the health of applications. As in, almost 2.5x more likely. This may be because of the inherent emphasis on native instrumentation within cloud-native applications, which are unsurprisingly more likely to be deployed in a public cloud environment. The use of a service mesh, for example, is often partially driven by the need for visibility in clustered environments, which provides the metrics needed to report on the health of container-based applications. The bulk of traditional applications is increasingly aging monoliths that remain on-premises, most of which were never designed to support the instrumentation needed to properly monitor their status and health. Agent-based approaches to monitoring are costly to maintain and operate—not to mention scale—and thus are more likely to be found keeping watch over applications viewed as critical to the customer experience. Data selection bias is a significant challenge standing in the way of organizations realizing full visibility and no doubt it continues to plague efforts to monitor traditional apps that may be viewed as non-critical.
+
+Complexity cannot be erased. Organizations are going to operate in a multi-cloud manner and as they extend to the edge, that’s only going to cause complexity to grow. But it can be managed, and that’s the task technology leaders must embrace and that vendors are seeking to solve.
+
+There are more multi-cloud—and edge—insights in our annual report. I encourage you to grab it today and give it a read.

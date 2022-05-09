@@ -58,7 +58,9 @@ const ProjectListSection: React.FC = () => {
               <div className="text-slate-500 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-slate-200">
                 <DocumentDuplicateIcon />
               </div>
-              <h3 className="text-3xl font-semibold">Products of Interest</h3>
+              <h3 className="text-3xl font-semibold dark:text-white">
+                Products of Interest
+              </h3>
               <ul className="list-none mt-6">
                 {documents.map((doc, index) => (
                   <li key={index} className="py-2 flex items-center">

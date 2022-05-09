@@ -17,7 +17,7 @@ const MemberStructure: React.FC<Props> = ({ children, meta }) => {
   return (
     <section className="flex-1">
       <div className="container px-6 py-10 mx-auto">
-        <div className="flex flex-col sm:flex-row">
+        <div className="flex flex-col sm:flex-row justify-center">
           <div className="flex flex-col sm:mr-12 sm:mb-0 mb-8">
             <Avatar img={avatarData?.img} />
 
@@ -72,7 +72,7 @@ const MemberStructure: React.FC<Props> = ({ children, meta }) => {
               </div>
             )}
           </div>
-          <article className="flex-1 text-slate-900 dark:text-white p-2">
+          <article className="flex-1 text-slate-900 dark:text-white p-2 max-w-2xl">
             {children}
           </article>
         </div>

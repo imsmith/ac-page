@@ -1,0 +1,55 @@
+---
+title: 'Example'
+publishedAt: '2022-05-04'
+excerpt: 'Next.js has a built-in Image component that comes with a lot of performance optimization features when you are using it.'
+cover_image: 'path/to/where/image/is/stored'
+---
+
+import { Avatar, BlogStructure } from '../../components/';
+
+export const meta = {
+  slug: 'example',
+  title: 'Blog Template',
+  author: 'YOU',
+  authorTitle: 'CEO',
+  authorUrl: 'https://www.f5.com/authors/',
+  tags: ['The best tags'],
+  publishedDate: 'May 03, 2022',
+};
+
+# huh
+
+Look at all the cool stuff
+
+```js
+// pages/index.js
+
+import { MDXProvider } from '@mdx-js/react';
+import Image from 'next/image';
+import { Heading, InlineCode, Pre, Table, Text } from 'my-components';
+
+const ResponsiveImage = (props) => (
+  <Image alt={props.alt} layout="responsive" {...props} />
+);
+
+const components = {
+  img: ResponsiveImage,
+  h1: Heading.H1,
+  h2: Heading.H2,
+  p: Text,
+  pre: Pre,
+  code: InlineCode,
+};
+
+export default function Post(props) {
+  return (
+    <MDXProvider components={components}>
+      <main {...props} />
+    </MDXProvider>
+  );
+}
+```
+
+export default ({ children }) => (
+  <BlogStructure meta={meta}>{children}</BlogStructure>
+);
