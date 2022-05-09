@@ -1,11 +1,9 @@
 ---
 title: 'Example'
-publishedAt: '2022-05-04'
+date: '2022-05-04'
 excerpt: 'Next.js has a built-in Image component that comes with a lot of performance optimization features when you are using it.'
-cover_image: 'path/to/where/image/is/stored'
+coverImage: 'path/to/where/image/is/stored'
 ---
-
-import { Avatar, BlogStructure } from '../../components/';
 
 export const meta = {
   slug: 'example',
@@ -49,7 +47,3 @@ export default function Post(props) {
   );
 }
 ```
-
-export default ({ children }) => (
-  <BlogStructure meta={meta}>{children}</BlogStructure>
-);

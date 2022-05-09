@@ -2,33 +2,56 @@ import React from 'react';
 import type { NextPage } from 'next';
 import { getMDXComponent } from 'mdx-bundler/client';
 import { getAllPosts, getSinglePost } from '../../utils/mdx';
-import { Avatar, Heading } from '../../components';
+import { Avatar } from '../../components';
+import { formatDate } from '../../utils/misc';
+import { GetStaticProps, InferGetStaticPropsType, GetStaticPaths } from 'next';
 
-const Post: NextPage = ({ code, frontmatter, ...rest }: any) => {
+const Paragraph: React.FC<any> = (props) => {
+  if (typeof props.children !== 'string' && props.children.type === 'img') {
+    return <>{props.children}</>;
+  }
+
+  return <p {...props} />;
+};
+
+type Props = {
+  code: string;
+  frontmatter: {
+    [key: string]: any;
+  };
+  readingTime: string;
+};
+const Post: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
+  code,
+  frontmatter,
+  ...rest
+}) => {
   // console.log({ code, frontmatter, rest });
   const Component = React.useMemo(() => getMDXComponent(code), [code]);
 
   return (
-    <article className="dark:text-white text-slate-700 mt-16 mx-auto max-w-2xl">
+    <div className="dark:text-white text-slate-700 mt-16 mx-auto max-w-7xl">
       <h1 className="text-3xl">{frontmatter.title}</h1>
-      <h1>{frontmatter.publishedAt}</h1>
+      <h1>{formatDate(frontmatter.date)}</h1>
       <h1>{frontmatter.excerpt}</h1>
       <small>Reading Time: {rest.readingTime}</small>
-      <Component components={{ Avatar, h1: Heading }} />
-    </article>
+      <article className="dark:text-white text-slate-700 prose dark:prose-dark">
+        <Component components={{ Avatar, p: Paragraph }} />
+      </article>
+    </div>
   );
 };
 
 export default Post;
 
-export const getStaticProps = async ({ params }: any) => {
-  const post = await getSinglePost(params.slug);
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const post = await getSinglePost(params?.slug);
   return {
     props: { ...post },
   };
 };
 
-export const getStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
   const paths = getAllPosts().map(({ slug }) => ({ params: { slug } }));
   return {
     paths,

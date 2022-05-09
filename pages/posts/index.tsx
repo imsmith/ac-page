@@ -2,26 +2,33 @@ import React from 'react';
 import { Card } from '../../components';
 import type { NextPage } from 'next';
 import Link from 'next/link';
-
+import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { formatDate } from '../../utils/misc';
 import { getAllPosts } from '../../utils/mdx';
 
-const Blog: NextPage = ({ posts }) => {
+const Blog: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
+  posts,
+}) => {
   return (
     <section className="bg-white dark:bg-slate-900">
       <div className="container px-6 py-10 mx-auto">
-        <h1 className="text-3xl font-semibold text-center text-slate-800 capitalize lg:text-4xl dark:text-white">
-          <span className="text-primary-500 dark:text-slate-200">
-            Latest Posts
-          </span>
+        <h1 className="text-3xl font-semibold text-slate-800 capitalize lg:text-4xl dark:text-white">
+          <span className="text-primary-500 dark:text-slate-200">Blog</span>
         </h1>
 
-        <div className="max-w-2xl mx-auto my-6 text-slate-500 dark:text-slate-300">
+        <div className="my-6 text-slate-500 dark:text-slate-300">
           {posts.map((post: any) => (
-            <Link key={post.slug} href={`/posts/${post.slug}`} passHref>
-              <p className="hover:text-primary-400 cursor-pointer">
-                {post.frontmatter.title}
-              </p>
-            </Link>
+            <div key={post.slug} className="mt-14">
+              <p className="text-xs">{formatDate(post.frontmatter.date)}</p>
+              <Link href={`/posts/${post.slug}`} passHref>
+                <p className="hover:text-primary-400 cursor-pointer text-xl font-bold">
+                  {post.frontmatter.title}
+                </p>
+              </Link>
+              {post.frontmatter.excerpt && (
+                <p className="text-sm mt-2">{post.frontmatter.excerpt}</p>
+              )}
+            </div>
           ))}
         </div>
 
@@ -33,7 +40,7 @@ const Blog: NextPage = ({ posts }) => {
 
 export default Blog;
 
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const posts = getAllPosts();
 
   return {
