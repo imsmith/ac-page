@@ -13,7 +13,7 @@ const Layout: React.FC<Props> = ({ children }) => {
         <link rel="icon" href="/image/favicon.ico" />
       </Head>
       <Navbar />
-      <div className="pt-[69px] flex flex-col h-full">
+      <div className="flex h-full flex-col pt-[69px]">
         <main className="flex flex-1 flex-col bg-white dark:bg-slate-900">
           {children}
         </main>

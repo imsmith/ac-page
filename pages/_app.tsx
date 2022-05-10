@@ -1,4 +1,7 @@
 import '../styles/globals.css';
+// import '../styles/prose.css';
+import '../styles/leerobProse.css';
+
 import type { AppProps } from 'next/app';
 import { Layout } from '../components';
 import { QueryClient, QueryClientProvider } from 'react-query';

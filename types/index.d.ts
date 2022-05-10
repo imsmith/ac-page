@@ -7,14 +7,10 @@ type MdxPage = {
   frontmatter: {
     archived?: boolean;
     draft?: boolean;
-    title?: string;
+    title: string;
     excerpt?: string;
     coverImage?: string;
-    date?: string;
-    meta?: {
-      keywords?: Array<string>;
-      [key as string]: string;
-    };
+    date: string;
   };
 };
 

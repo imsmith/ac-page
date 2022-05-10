@@ -5,10 +5,10 @@ const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/,
   options: {
     remarkPlugins: [],
-    rehypePlugins: [],
+    rehypePlugins: []
     // If you use `MDXProvider`, uncomment the following line.
     // providerImportSource: '@mdx-js/react',
-  },
+  }
 });
 
 module.exports = withMDX({
@@ -17,7 +17,7 @@ module.exports = withMDX({
   reactStrictMode: true,
   images: {
     loader: 'custom',
-    domains: ['unsplash.com', 'images.unsplash.com', 'f5.sharepoint.com'],
+    domains: ['unsplash.com', 'images.unsplash.com', 'f5.sharepoint.com']
   },
-  assetPrefix: '',
+  assetPrefix: ''
 });
