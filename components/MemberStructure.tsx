@@ -16,32 +16,32 @@ const MemberStructure: React.FC<Props> = ({ children, meta }) => {
 
   return (
     <section className="flex-1">
-      <div className="container px-6 py-10 mx-auto">
-        <div className="flex flex-col sm:flex-row justify-center">
-          <div className="flex flex-col sm:mr-12 sm:mb-0 mb-8">
+      <div className="container mx-auto px-6 py-10">
+        <div className="flex flex-col justify-center sm:flex-row">
+          <div className="mb-8 flex flex-col sm:mr-12 sm:mb-0">
             <Avatar img={avatarData?.img} />
 
-            <h1 className="mt-4 text-2xl font-semibold text-slate-700 capitalize dark:text-white">
+            <h1 className="mt-4 text-2xl font-semibold capitalize text-monochromatic-700 dark:text-white">
               {meta.name}
             </h1>
 
             {meta.title && (
-              <p className="mt-2 text-slate-500 capitalize dark:text-slate-300">
+              <p className="mt-2 capitalize text-monochromatic-500 dark:text-monochromatic-300">
                 {meta.title}
               </p>
             )}
 
             {meta.socials && (
-              <div className="text-slate-700 dark:text-white mt-2">
+              <div className="mt-2 text-monochromatic-700 dark:text-white">
                 <p className="text-base">Socials</p>
-                <div className="flex mt-2">
+                <div className="mt-2 flex">
                   {(meta.socials.github ||
                     meta.socials.github?.length === 0) && (
                     <a
                       rel="noopener noreferrer"
                       target="_blank"
                       href={`https://github.com/${meta.socials.github}`}
-                      className="hover:opacity-70 mr-2 text-slate-500 dark:text-slate-300"
+                      className="mr-2 text-monochromatic-500 hover:opacity-70 dark:text-monochromatic-300"
                     >
                       <GithubIcon />
                     </a>
@@ -52,7 +52,7 @@ const MemberStructure: React.FC<Props> = ({ children, meta }) => {
                       rel="noopener noreferrer"
                       target="_blank"
                       href={`https://linkedin.com/in/${meta.socials.linkedin}`}
-                      className="hover:opacity-70 mr-2 text-slate-500 dark:text-slate-300"
+                      className="mr-2 text-monochromatic-500 hover:opacity-70 dark:text-monochromatic-300"
                     >
                       <LinkdinIcon />
                     </a>
@@ -63,7 +63,7 @@ const MemberStructure: React.FC<Props> = ({ children, meta }) => {
                       rel="noopener noreferrer"
                       target="_blank"
                       href={`https://twitter.com/${meta.socials.twitter}`}
-                      className="hover:opacity-70 mr-2 text-slate-500 dark:text-slate-300"
+                      className="mr-2 text-monochromatic-500 hover:opacity-70 dark:text-monochromatic-300"
                     >
                       <TwitterIcon />
                     </a>
@@ -72,7 +72,7 @@ const MemberStructure: React.FC<Props> = ({ children, meta }) => {
               </div>
             )}
           </div>
-          <article className="flex-1 text-slate-900 dark:text-white p-2 max-w-2xl">
+          <article className="max-w-2xl flex-1 p-2 text-monochromatic-900 dark:text-white">
             {children}
           </article>
         </div>

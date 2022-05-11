@@ -17,8 +17,8 @@ const Avatar: React.FC<Props> = ({ img }) => {
           className="overflow-hidden rounded-full"
         />
       ) : (
-        <div className="object-cover w-32 h-32 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center">
-          <UserIcon className="text-slate-300 dark:text-slate-900 h-12 w-12" />
+        <div className="flex h-32 w-32 items-center justify-center rounded-full bg-monochromatic-100 object-cover dark:bg-monochromatic-700">
+          <UserIcon className="h-12 w-12 text-monochromatic-300 dark:text-monochromatic-900" />
         </div>
       )}
     </div>

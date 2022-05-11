@@ -21,9 +21,9 @@ const BloStructure: React.FC<Props> = ({ children, meta }) => {
 
   return (
     <section className="flex-1">
-      <div className="container px-6 py-10 mx-auto">
-        <div className="flex flex-col sm:flex-row justify-center">
-          <div className="flex flex-col sm:mr-12 sm:mb-0 mb-8 max-w-xs">
+      <div className="container mx-auto px-6 py-10">
+        <div className="flex flex-col justify-center sm:flex-row">
+          <div className="mb-8 flex max-w-xs flex-col sm:mr-12 sm:mb-0">
             <Avatar img={meta.authorImageUrl ?? avatarData?.img} />
 
             <a
@@ -33,7 +33,7 @@ const BloStructure: React.FC<Props> = ({ children, meta }) => {
             >
               <h1
                 className={cx(
-                  'mt-4 text-2xl font-semibold text-slate-700 capitalize dark:text-white',
+                  'mt-4 text-2xl font-semibold capitalize text-monochromatic-700 dark:text-white',
                   { 'underline hover:text-primary-400': meta.authorUrl }
                 )}
               >
@@ -42,20 +42,20 @@ const BloStructure: React.FC<Props> = ({ children, meta }) => {
             </a>
 
             {meta.authorTitle && (
-              <p className="mt-2 text-slate-500 capitalize dark:text-slate-300">
+              <p className="mt-2 capitalize text-monochromatic-500 dark:text-monochromatic-300">
                 {meta.authorTitle}
               </p>
             )}
 
             {meta.publishedDate && (
-              <p className="mt-2 text-slate-500 capitalize dark:text-slate-300">
+              <p className="mt-2 capitalize text-monochromatic-500 dark:text-monochromatic-300">
                 Published: {meta.publishedDate}
               </p>
             )}
 
             {meta.tags && (
-              <div className="text-slate-500 dark:text-slate-400 mt-2">
-                <span className="text-slate-600 dark:text-slate-300">
+              <div className="mt-2 text-monochromatic-500 dark:text-monochromatic-400">
+                <span className="text-monochromatic-600 dark:text-monochromatic-300">
                   Tags:{' '}
                 </span>
                 {meta.tags.map((tag) => (
@@ -66,7 +66,7 @@ const BloStructure: React.FC<Props> = ({ children, meta }) => {
               </div>
             )}
           </div>
-          <article className="flex-1 text-slate-900 dark:text-white p-2 max-w-2xl">
+          <article className="max-w-2xl flex-1 p-2 text-monochromatic-900 dark:text-white">
             {children}
             <div className="mt-8">More posts...</div>
           </article>

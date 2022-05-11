@@ -5,21 +5,21 @@ type Props = { member: { name: string; title: string; img: string } };
 
 const Card: React.FC<Props> = ({ member }) => {
   return (
-    <div className="bg-white dark:bg-slate-800 flex flex-col items-center p-8 duration-200 transform border rounded-xl group transition-all hover:scale-105 dark:border-slate-700">
+    <div className="group flex transform flex-col items-center rounded-xl border bg-white p-8 transition-all duration-200 hover:scale-105 dark:border-monochromatic-700 dark:bg-monochromatic-800">
       <Avatar img={member.img} />
 
-      <h1 className="mt-4 text-2xl font-semibold text-slate-700 capitalize dark:text-white">
+      <h1 className="mt-4 text-2xl font-semibold capitalize text-monochromatic-700 dark:text-white">
         {member.name}
       </h1>
 
-      <p className="mt-2 text-slate-500 capitalize dark:text-slate-300">
+      <p className="mt-2 capitalize text-monochromatic-500 dark:text-monochromatic-300">
         {member.title}
       </p>
 
-      <div className="flex mt-3 -mx-2">
+      <div className="-mx-2 mt-3 flex">
         <a
           href={`/members/${member.name.split(' ').join('-')}`}
-          className="text-primary-600 dark:text-primary-400 hover:underline"
+          className="text-primary-600 hover:underline dark:text-primary-400"
         >
           View Profile
         </a>

@@ -4,15 +4,15 @@ import type { NextPage } from 'next';
 const Member: NextPage = () => {
   return (
     <section className="flex-1">
-      <div className="container px-6 py-10 mx-auto">
-        <article className="flex-1 text-slate-900 dark:text-white p-2">
-          <h1 className="mt-4 text-2xl font-semibold text-slate-700 capitalize dark:text-white">
+      <div className="container mx-auto px-6 py-10">
+        <article className="flex-1 p-2 text-monochromatic-900 dark:text-white">
+          <h1 className="mt-4 text-2xl font-semibold capitalize text-monochromatic-700 dark:text-white">
             Member not found
           </h1>
           <div className="mt-4">
             <a
               href={`/members`}
-              className="text-primary-600 dark:text-primary-400 hover:underline"
+              className="text-primary-600 hover:underline dark:text-primary-400"
             >
               Find Members
             </a>

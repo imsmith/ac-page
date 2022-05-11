@@ -5,15 +5,15 @@ import type { NextPage } from 'next';
 
 const Members: NextPage = () => {
   return (
-    <section className="bg-white dark:bg-slate-900">
+    <section className="bg-white dark:bg-monochromatic-900">
       <div className="container mx-auto px-6 py-10">
-        <h1 className="text-center text-3xl font-semibold capitalize text-slate-800 dark:text-white lg:text-4xl">
-          <span className="text-slate-500 dark:text-slate-200">
+        <h1 className="text-center text-3xl font-semibold capitalize text-monochromatic-800 dark:text-white lg:text-4xl">
+          <span className="text-monochromatic-500 dark:text-monochromatic-200">
             Council Members
           </span>
         </h1>
 
-        <p className="mx-auto my-6 max-w-2xl text-center text-slate-500 dark:text-slate-300">
+        <p className="mx-auto my-6 max-w-2xl text-center text-monochromatic-500 dark:text-monochromatic-300">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo incidunt
           ex placeat modi magni quia error alias, adipisci rem similique, at
           omnis eligendi optio eos harum.

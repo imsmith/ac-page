@@ -14,7 +14,7 @@ const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 z-50 w-full bg-white shadow dark:bg-slate-800">
+    <nav className="fixed top-0 z-50 w-full bg-white shadow dark:bg-monochromatic-800">
       <div className="container mx-auto px-6 py-4 md:flex md:items-center md:justify-between">
         <div className="flex items-center justify-between">
           <Link href="/" passHref>
@@ -22,7 +22,7 @@ const Navbar: React.FC = () => {
               <div className="mr-2 w-10">
                 <Image alt="logo" src={f5Logo} layout="responsive" />
               </div>
-              <p className="pointer-events-none w-20 text-base font-semibold leading-4 text-slate-700 dark:text-slate-200">
+              <p className="pointer-events-none w-20 text-base font-semibold leading-4 text-monochromatic-700 dark:text-monochromatic-200">
                 Office of the CTO
               </p>
             </div>
@@ -32,7 +32,7 @@ const Navbar: React.FC = () => {
           <div className="flex md:hidden">
             <button
               type="button"
-              className="text-slate-500 hover:text-slate-600 focus:text-slate-600 focus:outline-none dark:text-slate-200 dark:hover:text-slate-400 dark:focus:text-slate-400"
+              className="text-monochromatic-500 hover:text-monochromatic-600 focus:text-monochromatic-600 focus:outline-none dark:text-monochromatic-200 dark:hover:text-monochromatic-400 dark:focus:text-monochromatic-400"
               aria-label="toggle menu"
               onClick={() => setIsOpen(!isOpen)}
             >
@@ -54,7 +54,7 @@ const Navbar: React.FC = () => {
                 <a
                   onClick={() => setIsOpen(false)}
                   className="
-                my-1 transform text-sm font-medium text-slate-700 transition-colors duration-200 hover:text-primary-500 dark:text-slate-200 dark:hover:text-primary-400 md:mx-4 md:my-0"
+                my-1 transform text-sm font-medium text-monochromatic-700 transition-colors duration-200 hover:text-primary-500 dark:text-monochromatic-200 dark:hover:text-primary-400 md:mx-4 md:my-0"
                 >
                   {link.name}
                 </a>
