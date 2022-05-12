@@ -63,7 +63,9 @@ const Navbar: React.FC = () => {
               </Link>
             ))}
           </div>
-          <DarkModeButton />
+          <div className="hidden md:block">
+            <DarkModeButton />
+          </div>
         </div>
       </div>
     </nav>
