@@ -69,7 +69,7 @@ const ProjectListSection: React.FC = () => {
                       target="_blank"
                       href={doc.link}
                     >
-                      <h4 className="cursor-pointer text-monochromatic-500 underline hover:text-primary-400">
+                      <h4 className="cursor-pointer text-monochromatic-500 underline hover:text-primary-400 dark:text-monochromatic-400">
                         {doc.title}
                       </h4>
                     </a>

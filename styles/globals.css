@@ -19,3 +19,17 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.imageContainer {
+  width: 100%;
+}
+.imageContainer > span {
+  position: unset !important;
+}
+
+.imageContainer .image {
+  object-fit: contain;
+  width: 100% !important;
+  position: relative !important;
+  height: unset !important;
+}

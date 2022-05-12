@@ -3,6 +3,7 @@ import Image from './Image';
 import f5Logo from '../public/image/f5/logo.png';
 import cx from 'classnames';
 import Link from 'next/link';
+import { DarkModeButton } from './';
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -30,9 +31,10 @@ const Navbar: React.FC = () => {
 
           {/* Mobile menu button */}
           <div className="flex md:hidden">
+            <DarkModeButton />
             <button
               type="button"
-              className="text-monochromatic-500 hover:text-monochromatic-600 focus:text-monochromatic-600 focus:outline-none dark:text-monochromatic-200 dark:hover:text-monochromatic-400 dark:focus:text-monochromatic-400"
+              className="ml-2 text-monochromatic-500 hover:text-monochromatic-600 focus:text-monochromatic-600 focus:outline-none dark:text-monochromatic-200 dark:hover:text-monochromatic-400 dark:focus:text-monochromatic-400"
               aria-label="toggle menu"
               onClick={() => setIsOpen(!isOpen)}
             >
@@ -61,6 +63,7 @@ const Navbar: React.FC = () => {
               </Link>
             ))}
           </div>
+          <DarkModeButton />
         </div>
       </div>
     </nav>

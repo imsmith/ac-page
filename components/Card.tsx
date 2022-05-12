@@ -6,7 +6,7 @@ type Props = { member: { name: string; title: string; img: string } };
 const Card: React.FC<Props> = ({ member }) => {
   return (
     <div className="group flex transform flex-col items-center rounded-xl border bg-white p-8 transition-all duration-200 hover:scale-105 dark:border-monochromatic-700 dark:bg-monochromatic-800">
-      <Avatar img={member.img} />
+      <Avatar img={member.img} size="md" />
 
       <h1 className="mt-4 text-2xl font-semibold capitalize text-monochromatic-700 dark:text-white">
         {member.name}

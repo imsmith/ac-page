@@ -19,7 +19,7 @@ const MemberStructure: React.FC<Props> = ({ children, meta }) => {
       <div className="container mx-auto px-6 py-10">
         <div className="flex flex-col justify-center sm:flex-row">
           <div className="mb-8 flex flex-col sm:mr-12 sm:mb-0">
-            <Avatar img={avatarData?.img} />
+            <Avatar img={avatarData?.img} size="lg" />
 
             <h1 className="mt-4 text-2xl font-semibold capitalize text-monochromatic-700 dark:text-white">
               {meta.name}

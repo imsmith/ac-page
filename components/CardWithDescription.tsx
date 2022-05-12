@@ -7,7 +7,7 @@ const CardWithDescription: React.FC<Props> = ({ member }) => {
   return (
     <div className="group transform rounded-xl  border bg-white px-12 py-8 transition duration-200 hover:scale-105 dark:border-monochromatic-700 dark:bg-monochromatic-800">
       <div className="flex flex-col sm:flex-row">
-        <Avatar img={member.img} />
+        <Avatar img={member.img} size="lg" />
 
         <div className="mt-4 sm:mx-4 sm:mt-0">
           <h1 className="text-xl font-semibold capitalize text-monochromatic-700 dark:text-white md:text-2xl">

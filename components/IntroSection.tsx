@@ -10,7 +10,7 @@ import { TableIcon } from '@heroicons/react/outline';
 
 const IntroSection: React.FC = () => {
   return (
-    <section className="bg-monochromatic-200 py-20">
+    <section className="bg-monochromatic-200 py-20 dark:bg-monochromatic-800">
       <div className="container mx-auto px-4">
         <div className="flex flex-wrap" />
 
@@ -22,7 +22,7 @@ const IntroSection: React.FC = () => {
             <h3 className="mb-2 text-3xl font-semibold leading-normal">
               Architecture Council Charter
             </h3>
-            <p className="mt-4 mb-4 text-lg font-light leading-relaxed text-monochromatic-600">
+            <p className="mt-4 mb-4 text-lg font-light leading-relaxed text-monochromatic-600 dark:text-monochromatic-400">
               The purpose of the F5 Architecture Council is to be an
               outcome-based group of key leaders, convening on topics that
               impact our technology, business, and product decisions.
