@@ -10,6 +10,5 @@ export { default as MemberHighlight } from './MemberHighlight';
 export { default as Card } from './Card';
 export { default as CardWithDescription } from './CardWithDescription';
 export { default as Avatar } from './Avatar';
-export { default as MemberStructure } from './MemberStructure';
 export { default as DarkModeButton } from './DarkModeButton';
 export * from './icons';

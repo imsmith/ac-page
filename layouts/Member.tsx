@@ -1,18 +1,15 @@
-import React from 'react';
 import { Avatar, TwitterIcon, LinkdinIcon, GithubIcon } from '../components';
+import { MdxMemberPage } from '../types';
+import type { PropsWithChildren } from 'react';
 import { members } from '../utils/constants';
 
-type Props = {
-  children: React.ReactNode;
-  meta: {
-    name: string;
-    title?: string;
-    socials?: { twitter?: string; github?: string; linkedin?: string };
-  };
-};
-
-const MemberStructure: React.FC<Props> = ({ children, meta }) => {
-  const avatarData = members.find((member) => member.name === meta.name);
+export default function MemberLayout({
+  children,
+  member: { frontmatter }
+}: PropsWithChildren<{ member: MdxMemberPage }>) {
+  const avatarData = members.find((member) => member.name === frontmatter.name);
+  const hasSocials =
+    frontmatter.github || frontmatter.linkedin || frontmatter.twitter;
 
   return (
     <section className="flex-1">
@@ -22,47 +19,44 @@ const MemberStructure: React.FC<Props> = ({ children, meta }) => {
             <Avatar img={avatarData?.img} size="lg" />
 
             <h1 className="mt-4 text-2xl font-semibold capitalize text-monochromatic-700 dark:text-white">
-              {meta.name}
+              {frontmatter.name}
             </h1>
 
-            {meta.title && (
+            {frontmatter.title && (
               <p className="mt-2 capitalize text-monochromatic-500 dark:text-monochromatic-300">
-                {meta.title}
+                {frontmatter.title}
               </p>
             )}
 
-            {meta.socials && (
+            {hasSocials && (
               <div className="mt-2 text-monochromatic-700 dark:text-white">
                 <p className="text-base">Socials</p>
                 <div className="mt-2 flex">
-                  {(meta.socials.github ||
-                    meta.socials.github?.length === 0) && (
+                  {frontmatter.github && (
                     <a
                       rel="noopener noreferrer"
                       target="_blank"
-                      href={`https://github.com/${meta.socials.github}`}
+                      href={`https://github.com/${frontmatter.github}`}
                       className="mr-2 text-monochromatic-500 hover:opacity-70 dark:text-monochromatic-300"
                     >
                       <GithubIcon />
                     </a>
                   )}
-                  {(meta.socials.linkedin ||
-                    meta.socials.linkedin?.length === 0) && (
+                  {frontmatter.linkedin && (
                     <a
                       rel="noopener noreferrer"
                       target="_blank"
-                      href={`https://linkedin.com/in/${meta.socials.linkedin}`}
+                      href={`https://linkedin.com/in/${frontmatter.linkedin}`}
                       className="mr-2 text-monochromatic-500 hover:opacity-70 dark:text-monochromatic-300"
                     >
                       <LinkdinIcon />
                     </a>
                   )}
-                  {(meta.socials.twitter ||
-                    meta.socials.twitter?.length === 0) && (
+                  {frontmatter.twitter && (
                     <a
                       rel="noopener noreferrer"
                       target="_blank"
-                      href={`https://twitter.com/${meta.socials.twitter}`}
+                      href={`https://twitter.com/${frontmatter.twitter}`}
                       className="mr-2 text-monochromatic-500 hover:opacity-70 dark:text-monochromatic-300"
                     >
                       <TwitterIcon />
@@ -77,8 +71,18 @@ const MemberStructure: React.FC<Props> = ({ children, meta }) => {
           </article>
         </div>
       </div>
+      {/* <div className="container mx-auto px-6 py-10">
+        <article className="flex-1 p-2 text-monochromatic-900 dark:text-white">
+          <h1>{frontMatter.title}</h1>
+          <MDXRemote
+            {...mdxSource}
+            components={{
+              Button,
+              Avatar
+            }}
+          />
+        </article>
+      </div> */}
     </section>
   );
-};
-
-export default MemberStructure;
+}

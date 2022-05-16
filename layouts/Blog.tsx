@@ -1,13 +1,13 @@
 import { Image, Avatar } from '../components';
 import { formatDate } from '../utils/misc';
-import { MdxPage } from '../types';
+import { MdxBlogPage } from '../types';
 import type { PropsWithChildren } from 'react';
 import { members } from '../utils/constants';
 
 export default function BlogLayout({
   children,
   post: { frontmatter, readingTime }
-}: PropsWithChildren<{ post: MdxPage }>) {
+}: PropsWithChildren<{ post: MdxBlogPage }>) {
   const avatarData = members.find(
     (member) => member.name === frontmatter.author
   );

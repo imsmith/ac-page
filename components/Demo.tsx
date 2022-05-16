@@ -1,7 +1,17 @@
-import * as React from 'react';
+import React, { useState } from 'react';
+import cx from 'classnames';
 
 function Demo() {
-  return <div className="animate-bounce">Neat demo!</div>;
+  const [clicked, setClicked] = useState(false);
+
+  return (
+    <div
+      className={cx('cursor-pointer', { 'animate-bounce': clicked })}
+      onClick={() => setClicked(!clicked)}
+    >
+      Neat demo!
+    </div>
+  );
 }
 
 export default Demo;

@@ -1,14 +1,29 @@
-import { Avatar, MemberStructure } from '../../components/';
+---
+name: 'Michael Wiley'
+title: 'VP And CTO, Application'
+twitter: ''
+github: ''
+linkedin: ''
+---
 
-export const meta = {
-  name: 'Michael Wiley',
-  title: 'VP And CTO, Application',
-  socials: {
-    twitter: '',
-    github: '',
-    linkedin: '',
-  },
-};
+<div>
+  This is a blog post about <strong>SolidJS</strong>. <br />
+  We'll learn about SolidJS and how to build with it.
+</div>
+
+<Avatar />
+<br />
+
+### This is a Markdown sub-heading
+
+We just used a `###` subheading in our blog post.
+
+```
+  // this is a code block
+  const doSomething = () => {
+    return console.log('hey')
+  }
+```
 
 <div>
   Irure mollit occaecat est consequat ad incididunt dolor nulla sunt
@@ -59,7 +74,3 @@ export const meta = {
 </div>
 <br />
 <div>Ex et nulla laborum incididunt ullamco voluptate.</div>
-
-export default ({ children }) => (
-  <MemberStructure meta={meta}>{children}</MemberStructure>
-);
