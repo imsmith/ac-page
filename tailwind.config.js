@@ -19,7 +19,7 @@ module.exports = {
         return {
           DEFAULT: {
             css: {
-              color: theme('colors.gray.700'),
+              color: theme('colors.monochromatic.700'),
               a: {
                 color: theme('colors.primary.500'),
                 '&:hover': {
@@ -29,7 +29,7 @@ module.exports = {
               },
               'h1,h2,h3,h4,h5,h6': { 'scroll-margin-top': spacing[20] },
               thead: {
-                borderBottomColor: theme('colors.gray.200')
+                borderBottomColor: theme('colors.monochromatic.200')
               },
               code: { color: theme('colors.pink.500') },
               'blockquote p:first-of-type::before': false,
@@ -38,7 +38,7 @@ module.exports = {
           },
           dark: {
             css: {
-              color: theme('colors.gray.200'),
+              color: theme('colors.monochromatic.200'),
               a: {
                 color: theme('colors.primary.400'),
                 '&:hover': {
@@ -47,34 +47,36 @@ module.exports = {
                 code: { color: theme('colors.primary.400') }
               },
               blockquote: {
-                borderLeftColor: theme('colors.gray.700'),
-                color: theme('colors.gray.300')
+                borderLeftColor: theme('colors.monochromatic.700'),
+                color: theme('colors.monochromatic.300')
               },
               'h1,h2,h3,h4,h5,h6': {
-                color: theme('colors.gray.100'),
+                color: theme('colors.monochromatic.100'),
                 'scroll-margin-top': spacing[20]
               },
-              hr: { borderColor: theme('colors.gray.700') },
+              hr: { borderColor: theme('colors.monochromatic.700') },
               ol: {
                 li: {
-                  '&:before': { color: theme('colors.gray.500') }
+                  '&:before': { color: theme('colors.monochromatic.500') }
                 }
               },
               ul: {
                 li: {
-                  '&:before': { backgroundColor: theme('colors.gray.500') }
+                  '&:before': {
+                    backgroundColor: theme('colors.monochromatic.500')
+                  }
                 }
               },
-              strong: { color: theme('colors.gray.100') },
+              strong: { color: theme('colors.monochromatic.100') },
               thead: {
                 th: {
-                  color: theme('colors.gray.100')
+                  color: theme('colors.monochromatic.100')
                 },
-                borderBottomColor: theme('colors.gray.600')
+                borderBottomColor: theme('colors.monochromatic.600')
               },
               tbody: {
                 tr: {
-                  borderBottomColor: theme('colors.gray.700')
+                  borderBottomColor: theme('colors.monochromatic.700')
                 }
               }
             }

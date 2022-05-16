@@ -66,23 +66,11 @@ export default function MemberLayout({
               </div>
             )}
           </div>
-          <article className="max-w-2xl flex-1 p-2 text-monochromatic-900 dark:text-white">
+          <article className="prose-light prose max-w-2xl flex-1 p-2 text-monochromatic-700 dark:prose-dark dark:text-white">
             {children}
           </article>
         </div>
       </div>
-      {/* <div className="container mx-auto px-6 py-10">
-        <article className="flex-1 p-2 text-monochromatic-900 dark:text-white">
-          <h1>{frontMatter.title}</h1>
-          <MDXRemote
-            {...mdxSource}
-            components={{
-              Button,
-              Avatar
-            }}
-          />
-        </article>
-      </div> */}
     </section>
   );
 }

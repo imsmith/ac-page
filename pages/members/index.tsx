@@ -1,9 +1,12 @@
 import React from 'react';
-import { members } from '../../utils/constants';
 import { Card } from '../../components';
 import type { NextPage } from 'next';
+import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { getAllMembers } from '../../utils/mdx';
 
-const Members: NextPage = () => {
+const Members: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
+  members
+}) => {
   return (
     <section className="bg-white dark:bg-monochromatic-900">
       <div className="container mx-auto px-6 py-10">
@@ -20,8 +23,8 @@ const Members: NextPage = () => {
         </p>
 
         <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 xl:mt-16 xl:grid-cols-4">
-          {members.map((member, index) => (
-            <Card key={index} member={member} />
+          {members.map((member: any) => (
+            <Card key={member.slug} member={member} />
           ))}
         </div>
       </div>
@@ -30,3 +33,11 @@ const Members: NextPage = () => {
 };
 
 export default Members;
+
+export const getStaticProps: GetStaticProps = async () => {
+  const members = getAllMembers();
+
+  return {
+    props: { members }
+  };
+};

@@ -119,43 +119,25 @@ export const getSinglePost = async (slug: string | string[] | undefined) => {
 };
 
 export const getAllMembers = () => {
-  const posts = fs
+  const members = fs
     .readdirSync(MEMBERS_PATH)
     .filter((path) => /\.mdx?$/.test(path))
-    .map((filename) => {
-      const markdownWithMeta = fs.readFileSync(
-        path.join('members', filename),
-        'utf-8'
-      );
-      const { data: frontmatter } = matter(markdownWithMeta);
+    .map((fileName) => {
+      const source = getSourceOfFile(MEMBERS_PATH, fileName);
+      const slug = fileName.replace(/\.mdx?$/, '');
+
+      const { data } = matter(source, {
+        engines: {
+          yaml: (s) => yaml.load(s, { schema: yaml.JSON_SCHEMA }) as object
+        }
+      });
+
       return {
-        frontmatter,
-        slug: filename.split('.')[0]
+        frontmatter: data,
+        slug: slug
       };
     });
-  return posts;
-
-  // const posts = fs
-  //   .readdirSync(MEMBERS_PATH)
-  //   .filter((path) => /\.mdx?$/.test(path))
-  //   .map((fileName) => {
-  //     const source = getSourceOfFile(MEMBERS_PATH, fileName);
-  //     const slug = fileName.replace(/\.mdx?$/, '');
-
-  //     const { data } = matter(source, {
-  //       engines: {
-  //         yaml: (s) => yaml.load(s, { schema: yaml.JSON_SCHEMA }) as object
-  //       }
-  //     });
-
-  //     return {
-  //       frontmatter: data,
-  //       slug: slug,
-  //       readingTime: readingTime(source.toString()).text
-  //     };
-  //   });
-
-  // return sortPostsByDate(posts as any);
+  return members.sort((a, b) => (a.slug > b.slug ? 1 : -1));
 };
 
 export const getSingleMember = async (slug: string | string[] | undefined) => {

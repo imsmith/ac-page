@@ -9,6 +9,7 @@ export type MdxMemberPage = {
     linkedin?: string;
   };
 };
+export type MdxListMemberItem = Omit<MdxMemberPage, 'code'>;
 
 export type MdxBlogPage = {
   code: string;

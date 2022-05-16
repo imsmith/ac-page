@@ -1,5 +1,4 @@
 import React from 'react';
-import { Card } from '../../components';
 import type { NextPage } from 'next';
 import Link from 'next/link';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
