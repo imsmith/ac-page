@@ -51,12 +51,9 @@ export default function BlogLayout({
             Written by {frontmatter.author}
           </p>
           <p className="text-sm text-monochromatic-700 dark:text-monochromatic-300">
-            <Link
-              href={`/member/${avatarData?.name.replaceAll(' ', '-')}`}
-              passHref
-            >
+            <Link href={`/member/`} passHref>
               <span className="cursor-pointer hover:text-primary-400">
-                {`Learn more about ${avatarData?.name.split(' ')[0]} →`}
+                {`Learn more about ${frontmatter.author.split(' ')[0]} →`}
               </span>
             </Link>
           </p>
