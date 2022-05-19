@@ -3,7 +3,7 @@ import type { NextPage } from 'next';
 import { GetStaticProps, InferGetStaticPropsType, GetStaticPaths } from 'next';
 import { getAllMembers, getSingleMember } from '../../utils/mdx';
 import { Avatar } from '../../components';
-import MemberLayout from '../../layouts/member';
+import MemberLayout from '../../layouts/MemberLayout';
 import { getMDXComponent } from 'mdx-bundler/client';
 
 const Member: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({

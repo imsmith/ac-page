@@ -3,7 +3,7 @@ import type { NextPage } from 'next';
 import { getMDXComponent } from 'mdx-bundler/client';
 import { getAllPosts, getSinglePost } from '../../utils/mdx';
 import { Avatar } from '../../components';
-import BlogLayout from '../../layouts/blog';
+import BlogLayout from '../../layouts/BlogLayout';
 import { GetStaticProps, InferGetStaticPropsType, GetStaticPaths } from 'next';
 
 const Post: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
