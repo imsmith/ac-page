@@ -1,11 +1,13 @@
 import React from 'react';
 import { Avatar } from '../components';
 
-type Props = { member: { name: string; title: string; img: string } };
+type Props = {
+  member: { name: string; title: string; description?: string; img: string };
+};
 
 const CardWithDescription: React.FC<Props> = ({ member }) => {
   return (
-    <div className="group transform rounded-xl  border bg-white px-12 py-8 transition duration-200 hover:scale-105 dark:border-monochromatic-700 dark:bg-monochromatic-800">
+    <div className="group transform rounded-xl border bg-white px-12 py-8 shadow transition duration-200 hover:scale-105 dark:border-monochromatic-700 dark:bg-monochromatic-800">
       <div className="flex flex-col sm:flex-row">
         <Avatar img={member.img} size="lg" />
 

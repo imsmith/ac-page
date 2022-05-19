@@ -1,15 +1,15 @@
 import React from 'react';
 import { Avatar } from '../components';
-import MdxMemberPage from '../types';
 import { members } from '../utils/constants';
+import { MdxListMemberItem } from '../types';
 
-type Props = { member: any };
+type Props = { member: MdxListMemberItem };
 
 const Card: React.FC<Props> = ({ member }) => {
   const avatarData = members.find((m) => m.name === member.frontmatter.name);
 
   return (
-    <div className="group flex transform flex-col items-center rounded-xl border bg-white p-8 transition-all duration-200 hover:scale-105 dark:border-monochromatic-700 dark:bg-monochromatic-800">
+    <div className="group flex transform flex-col items-center rounded-xl border bg-white p-8 shadow transition-all duration-200 hover:scale-105 dark:border-monochromatic-700 dark:bg-monochromatic-800">
       <Avatar img={avatarData?.img} size="md" />
 
       <h1 className="mt-4 text-2xl font-semibold capitalize text-monochromatic-700 dark:text-white">

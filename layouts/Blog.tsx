@@ -34,14 +34,16 @@ export default function BlogLayout({
       <div className="prose-light prose w-full max-w-none text-monochromatic-700 dark:prose-dark dark:text-white">
         {children}
       </div>
-      <div className="mt-4 flex flex-wrap">
-        <span className="mr-2 mt-1 text-sm">Tags: </span>
-        {frontmatter.tags?.map((tag: string) => (
-          <span key={tag} className="pill dark:pill-dark mr-2 mt-1">
-            {tag}
-          </span>
-        ))}
-      </div>
+      {frontmatter.tags?.length && (
+        <div className="mt-4 flex flex-wrap">
+          <span className="mr-2 mt-1 text-sm">Tags: </span>
+          {frontmatter.tags?.map((tag: string) => (
+            <span key={tag} className="pill dark:pill-dark mr-2 mt-1">
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
       <div className="mt-4 flex w-full border-t-[1px] border-monochromatic-300 pt-4 dark:border-monochromatic-700">
         <Avatar img={avatarData?.img} />
         <div className="ml-4 flex flex-1 flex-col justify-center">

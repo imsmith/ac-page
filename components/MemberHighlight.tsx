@@ -4,7 +4,7 @@ import { CardWithDescription } from '../components';
 
 const MemberHighlight: React.FC = () => {
   return (
-    <section className="bg-white pb-10 dark:bg-monochromatic-900">
+    <section className="bg-monochromatic-100 pb-10 dark:bg-monochromatic-900">
       <div className="container mx-auto px-6 py-10">
         <h1 className="text-center text-3xl font-semibold capitalize text-monochromatic-800 dark:text-white lg:text-4xl">
           Member Highlight

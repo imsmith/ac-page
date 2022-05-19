@@ -3,6 +3,7 @@ import { MdxMemberPage } from '../types';
 import type { PropsWithChildren } from 'react';
 import { members } from '../utils/constants';
 import Link from 'next/link';
+import { MdxListBlogItem } from '../types';
 
 export default function MemberLayout({
   children,
@@ -69,11 +70,11 @@ export default function MemberLayout({
 
             <div className="mt-4 text-monochromatic-700 dark:text-white">
               <div className="text-lg font-medium">Blog Posts</div>
-              {posts.map((post: any) => (
+              {posts.map((post: MdxListBlogItem) => (
                 <Link key={post.slug} href={`/blog/${post.slug}`} passHref>
-                  <span className="cursor-pointer text-sm underline hover:text-primary-400">
+                  <div className="cursor-pointer text-sm underline hover:text-primary-400">
                     {post.frontmatter.title}
-                  </span>
+                  </div>
                 </Link>
               ))}
             </div>

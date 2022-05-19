@@ -19,7 +19,7 @@
 
 @layer components {
   .pill {
-    @apply rounded-full bg-monochromatic-200 px-2 py-1 text-xs text-monochromatic-800;
+    @apply rounded-full bg-monochromatic-300 px-2 py-1 text-xs text-monochromatic-800;
   }
   .pill-dark {
     @apply rounded-full bg-monochromatic-700 px-2 py-1 text-xs text-white;

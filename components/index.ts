@@ -11,4 +11,5 @@ export { default as Card } from './Card';
 export { default as CardWithDescription } from './CardWithDescription';
 export { default as Avatar } from './Avatar';
 export { default as DarkModeButton } from './DarkModeButton';
+export { default as FeaturedPost } from './FeaturedPost';
 export * from './icons';
