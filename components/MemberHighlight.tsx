@@ -12,7 +12,7 @@ const MemberHighlight: React.FC = () => {
 
         <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 xl:mt-16">
           <CardWithDescription member={members[0]} />
-          <CardWithDescription member={members[1]} />
+          <CardWithDescription member={members[4]} />
         </div>
 
         <div className="pt-8 text-center capitalize text-monochromatic-800  dark:text-white">
