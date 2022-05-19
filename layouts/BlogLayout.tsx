@@ -52,11 +52,11 @@ export default function BlogLayout({
           </p>
           <p className="text-sm text-monochromatic-700 dark:text-monochromatic-300">
             <Link
-              href={`/member/${frontmatter?.author?.replaceAll(' ', '-')}`}
+              href={`/member/${avatarData?.name.replaceAll(' ', '-')}`}
               passHref
             >
               <span className="cursor-pointer hover:text-primary-400">
-                {`Learn more about ${frontmatter.author.split(' ')[0]} →`}
+                {`Learn more about ${avatarData?.name.split(' ')[0]} →`}
               </span>
             </Link>
           </p>
