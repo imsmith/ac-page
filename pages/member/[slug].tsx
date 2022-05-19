@@ -2,8 +2,8 @@ import React from 'react';
 import type { NextPage } from 'next';
 import { GetStaticProps, InferGetStaticPropsType, GetStaticPaths } from 'next';
 import { getAllMembers, getSingleMember } from '../../utils/mdx';
-import { Avatar } from '../../components/';
-import MemberLayout from '../../layouts/Member';
+import { Avatar } from '../../components';
+import MemberLayout from '../../layouts/member';
 import { getMDXComponent } from 'mdx-bundler/client';
 
 const Member: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({

@@ -1,8 +1,8 @@
 import React from 'react';
-import { Card } from '../../components';
+import { Card } from '../components';
 import type { NextPage } from 'next';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
-import { getAllMembers } from '../../utils/mdx';
+import { getAllMembers } from '../utils/mdx';
 
 const Members: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
   members
@@ -38,6 +38,6 @@ export const getStaticProps: GetStaticProps = async () => {
   const members = getAllMembers();
 
   return {
-    props: { members }
+    props: { members: members.sort((a, b) => (a.slug > b.slug ? 1 : -1)) }
   };
 };

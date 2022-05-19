@@ -12,7 +12,7 @@ import rehypeCodeTitles from 'rehype-code-titles';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypePrism from 'rehype-prism-plus';
 
-export const POSTS_PATH = path.join(process.cwd(), 'data/posts');
+export const BLOG_PATH = path.join(process.cwd(), 'data/blog');
 export const MEMBERS_PATH = path.join(process.cwd(), 'data/members');
 
 export const getSourceOfFile = (
@@ -33,10 +33,10 @@ const sortPostsByDate = (posts: MdxListBlogItem[]) => {
 
 export const getAllPosts = () => {
   const posts = fs
-    .readdirSync(POSTS_PATH)
+    .readdirSync(BLOG_PATH)
     .filter((path) => /\.mdx?$/.test(path))
     .map((fileName) => {
-      const source = getSourceOfFile(POSTS_PATH, fileName);
+      const source = getSourceOfFile(BLOG_PATH, fileName);
       const slug = fileName.replace(/\.mdx?$/, '');
 
       const { data } = matter(source, {
@@ -56,7 +56,7 @@ export const getAllPosts = () => {
 };
 
 export const getSinglePost = async (slug: string | string[] | undefined) => {
-  const source = getSourceOfFile(POSTS_PATH, slug + '.mdx', {
+  const source = getSourceOfFile(BLOG_PATH, slug + '.mdx', {
     encoding: 'utf-8'
   });
 
@@ -79,7 +79,7 @@ export const getSinglePost = async (slug: string | string[] | undefined) => {
 
   const { code, frontmatter } = await bundleMDX({
     source: source.toString(),
-    cwd: POSTS_PATH,
+    cwd: BLOG_PATH,
     grayMatterOptions: (options) => {
       options.engines = {
         yaml: (s) => yaml.load(s, { schema: yaml.JSON_SCHEMA }) as object
@@ -137,7 +137,7 @@ export const getAllMembers = () => {
         slug: slug
       };
     });
-  return members.sort((a, b) => (a.slug > b.slug ? 1 : -1));
+  return members;
 };
 
 export const getSingleMember = async (slug: string | string[] | undefined) => {
@@ -164,7 +164,7 @@ export const getSingleMember = async (slug: string | string[] | undefined) => {
 
   const { code, frontmatter } = await bundleMDX({
     source: source.toString(),
-    cwd: POSTS_PATH,
+    cwd: BLOG_PATH,
     grayMatterOptions: (options) => {
       options.engines = {
         yaml: (s) => yaml.load(s, { schema: yaml.JSON_SCHEMA }) as object
@@ -196,9 +196,14 @@ export const getSingleMember = async (slug: string | string[] | undefined) => {
     }
   });
 
+  const posts = getAllPosts().filter(
+    (post) => post.frontmatter.author === frontmatter.name
+  );
+
   return {
     frontmatter,
     code,
-    readingTime: readingTime(source.toString()).text
+    readingTime: readingTime(source.toString()).text,
+    posts
   };
 };

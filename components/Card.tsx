@@ -22,7 +22,7 @@ const Card: React.FC<Props> = ({ member }) => {
 
       <div className="-mx-2 mt-3 flex">
         <a
-          href={`/members/${member.slug}`}
+          href={`/member/${member.slug}`}
           className="text-primary-600 hover:underline dark:text-primary-400"
         >
           View Profile

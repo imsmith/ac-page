@@ -1,6 +1,7 @@
 export type MdxMemberPage = {
   code: string;
   slug: string;
+  posts: MdxBlogPage[];
   frontmatter: {
     name: string;
     title: string;
@@ -23,6 +24,7 @@ export type MdxBlogPage = {
     excerpt?: string;
     coverImage?: string;
     date: string;
+    tags?: string[];
   };
 };
 

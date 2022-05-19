@@ -2,8 +2,8 @@ import React from 'react';
 import type { NextPage } from 'next';
 import Link from 'next/link';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
-import { formatDate } from '../../utils/misc';
-import { getAllPosts } from '../../utils/mdx';
+import { formatDate } from '../utils/misc';
+import { getAllPosts } from '../utils/mdx';
 
 const Blog: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
   posts
@@ -21,14 +21,21 @@ const Blog: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
           {posts.map((post: any) => (
             <div key={post.slug} className="mt-14">
               <p className="text-xs">{formatDate(post.frontmatter.date)}</p>
-              <Link href={`/posts/${post.slug}`} passHref>
-                <p className="cursor-pointer text-xl font-bold hover:text-primary-400">
+              <Link href={`/blog/${post.slug}`} passHref>
+                <p className="flex cursor-pointer text-xl font-bold hover:text-primary-400">
                   {post.frontmatter.title}
                 </p>
               </Link>
               {post.frontmatter.excerpt && (
                 <p className="mt-2 text-sm">{post.frontmatter.excerpt}</p>
               )}
+              <div className="mt-1 flex flex-wrap">
+                {post.frontmatter.tags.map((tag: string) => (
+                  <span key={tag} className="pill dark:pill-dark mr-2 mt-1">
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
           ))}
         </div>

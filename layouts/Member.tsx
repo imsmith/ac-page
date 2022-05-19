@@ -2,10 +2,11 @@ import { Avatar, TwitterIcon, LinkdinIcon, GithubIcon } from '../components';
 import { MdxMemberPage } from '../types';
 import type { PropsWithChildren } from 'react';
 import { members } from '../utils/constants';
+import Link from 'next/link';
 
 export default function MemberLayout({
   children,
-  member: { frontmatter }
+  member: { frontmatter, posts }
 }: PropsWithChildren<{ member: MdxMemberPage }>) {
   const avatarData = members.find((member) => member.name === frontmatter.name);
   const hasSocials =
@@ -15,7 +16,7 @@ export default function MemberLayout({
     <section className="flex-1">
       <div className="container mx-auto px-6 py-10">
         <div className="flex flex-col justify-center sm:flex-row">
-          <div className="mb-8 flex flex-col sm:mr-12 sm:mb-0">
+          <div className="mb-8 flex max-w-xs flex-col sm:mr-12 sm:mb-0">
             <Avatar img={avatarData?.img} size="lg" />
 
             <h1 className="mt-4 text-2xl font-semibold capitalize text-monochromatic-700 dark:text-white">
@@ -36,7 +37,7 @@ export default function MemberLayout({
                     <a
                       rel="noopener noreferrer"
                       target="_blank"
-                      href={`https://github.com/${frontmatter.github}`}
+                      href={frontmatter.github}
                       className="mr-2 text-monochromatic-500 hover:opacity-70 dark:text-monochromatic-300"
                     >
                       <GithubIcon />
@@ -46,7 +47,7 @@ export default function MemberLayout({
                     <a
                       rel="noopener noreferrer"
                       target="_blank"
-                      href={`https://linkedin.com/in/${frontmatter.linkedin}`}
+                      href={frontmatter.linkedin}
                       className="mr-2 text-monochromatic-500 hover:opacity-70 dark:text-monochromatic-300"
                     >
                       <LinkdinIcon />
@@ -56,7 +57,7 @@ export default function MemberLayout({
                     <a
                       rel="noopener noreferrer"
                       target="_blank"
-                      href={`https://twitter.com/${frontmatter.twitter}`}
+                      href={frontmatter.twitter}
                       className="mr-2 text-monochromatic-500 hover:opacity-70 dark:text-monochromatic-300"
                     >
                       <TwitterIcon />
@@ -65,6 +66,17 @@ export default function MemberLayout({
                 </div>
               </div>
             )}
+
+            <div className="mt-4 text-monochromatic-700 dark:text-white">
+              <div className="text-lg font-medium">Blog Posts</div>
+              {posts.map((post: any) => (
+                <Link key={post.slug} href={`/blog/${post.slug}`} passHref>
+                  <span className="cursor-pointer text-sm underline hover:text-primary-400">
+                    {post.frontmatter.title}
+                  </span>
+                </Link>
+              ))}
+            </div>
           </div>
           <article className="prose-light prose max-w-2xl flex-1 p-2 text-monochromatic-700 dark:prose-dark dark:text-white">
             {children}

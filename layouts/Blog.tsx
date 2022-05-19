@@ -3,6 +3,7 @@ import { formatDate } from '../utils/misc';
 import { MdxBlogPage } from '../types';
 import type { PropsWithChildren } from 'react';
 import { members } from '../utils/constants';
+import Link from 'next/link';
 
 export default function BlogLayout({
   children,
@@ -14,22 +15,14 @@ export default function BlogLayout({
 
   return (
     <article className="mx-auto my-8 flex w-full max-w-2xl flex-col items-start justify-center px-8 text-monochromatic-700 dark:text-white md:my-16">
-      <h1 className="mb-4 text-3xl font-bold tracking-tight md:text-5xl ">
+      <h1 className="text-3xl font-bold tracking-tight md:text-5xl ">
         {frontmatter.title}
       </h1>
-      <div className="mt-2 flex w-full flex-col items-start justify-between md:flex-row md:items-center">
-        <div className="flex items-center">
-          <Avatar img={avatarData?.img} size="sm" />
-          <p className="ml-2 text-sm text-monochromatic-700 dark:text-monochromatic-300">
-            {frontmatter.author} / {formatDate(frontmatter.date)}
-          </p>
-        </div>
-        <p className="min-w-32 mt-2 text-sm text-monochromatic-700 dark:text-monochromatic-300 md:mt-0">
-          {readingTime}
-        </p>
-      </div>
+      <p className="text-sm text-monochromatic-700 dark:text-monochromatic-300">
+        {formatDate(frontmatter.date)} - {readingTime}
+      </p>
       {frontmatter.coverImage && (
-        <div className="imageContainer mt-4 md:mt-8">
+        <div className="imageContainer mt-2 md:mt-4">
           <Image
             alt="coverImage"
             src={frontmatter.coverImage}
@@ -40,6 +33,32 @@ export default function BlogLayout({
       )}
       <div className="prose-light prose w-full max-w-none text-monochromatic-700 dark:prose-dark dark:text-white">
         {children}
+      </div>
+      <div className="mt-4 flex flex-wrap">
+        <span className="mr-2 mt-1 text-sm">Tags: </span>
+        {frontmatter.tags?.map((tag: string) => (
+          <span key={tag} className="pill dark:pill-dark mr-2 mt-1">
+            {tag}
+          </span>
+        ))}
+      </div>
+      <div className="mt-4 flex w-full border-t-[1px] border-monochromatic-300 pt-4 dark:border-monochromatic-700">
+        <Avatar img={avatarData?.img} />
+        <div className="ml-4 flex flex-1 flex-col justify-center">
+          <p className="mb-2 text-base font-semibold">
+            Written by {frontmatter.author}
+          </p>
+          <p className="text-sm text-monochromatic-700 dark:text-monochromatic-300">
+            <Link
+              href={`/member/${frontmatter.author.replaceAll(' ', '-')}`}
+              passHref
+            >
+              <span className="cursor-pointer hover:text-primary-400">
+                {`Learn more about ${frontmatter.author.split(' ')[0]} →`}
+              </span>
+            </Link>
+          </p>
+        </div>
       </div>
     </article>
   );

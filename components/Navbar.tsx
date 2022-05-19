@@ -8,7 +8,7 @@ import { DarkModeButton } from './';
 const navigation = [
   { name: 'Home', href: '/' },
   { name: 'Members', href: '/members' },
-  { name: 'Blog', href: '/posts' }
+  { name: 'Blog', href: '/blog' }
 ];
 
 const Navbar: React.FC = () => {
