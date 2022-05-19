@@ -12,6 +12,7 @@ export default function BlogLayout({
   const avatarData = members.find(
     (member) => member.name === frontmatter.author
   );
+  const authorSlug = frontmatter.author.replace(/\s+/g, '-');
 
   return (
     <article className="mx-auto my-8 flex w-full max-w-2xl flex-col items-start justify-center px-8 text-monochromatic-700 dark:text-white md:my-16">
@@ -51,7 +52,7 @@ export default function BlogLayout({
             Written by {frontmatter.author}
           </p>
           <p className="text-sm text-monochromatic-700 dark:text-monochromatic-300">
-            <Link href={`/member/`} passHref>
+            <Link href={`/member/${authorSlug}`} passHref>
               <span className="cursor-pointer hover:text-primary-400">
                 {`Learn more about ${frontmatter.author.split(' ')[0]} →`}
               </span>
