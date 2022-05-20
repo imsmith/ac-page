@@ -68,16 +68,18 @@ export default function MemberLayout({
               </div>
             )}
 
-            <div className="mt-4 text-monochromatic-700 dark:text-white">
-              <div className="text-lg font-medium">Blog Posts</div>
-              {posts.map((post: MdxListBlogItem) => (
-                <Link key={post.slug} href={`/blog/${post.slug}`} passHref>
-                  <div className="cursor-pointer text-sm underline hover:text-primary-400">
-                    {post.frontmatter.title}
-                  </div>
-                </Link>
-              ))}
-            </div>
+            {posts.length > 0 && (
+              <div className="mt-4 text-monochromatic-700 dark:text-white">
+                <div className="text-lg font-medium">Blog Posts</div>
+                {posts.map((post: MdxListBlogItem) => (
+                  <Link key={post.slug} href={`/blog/${post.slug}`} passHref>
+                    <div className="cursor-pointer text-sm underline hover:text-primary-400">
+                      {post.frontmatter.title}
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
           <article className="prose-light prose max-w-2xl flex-1 p-2 text-monochromatic-700 dark:prose-dark dark:text-white">
             {children}
